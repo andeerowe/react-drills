@@ -3,16 +3,23 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  constructor () {
+    super ()
+
+    this.state = {
+      dataArr:['spaghetti', 'ice cream', 'sushi', 'bologna', 'cheese']
+    }
+  }
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+       <ul>
+         <li><h2>{this.state.dataArr[0]}</h2></li>
+         <li><h2>{this.state.dataArr[1]}</h2></li>
+         <li><h2>{this.state.dataArr[2]}</h2></li>
+         <li><h2>{this.state.dataArr[3]}</h2></li>
+         <li><h2>{this.state.dataArr[4]}</h2></li>
+       </ul>
       </div>
     );
   }
