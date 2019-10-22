@@ -1,20 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class Todo extends Component {
-    render (){
-        // return (
-        // <span>
-        // {this.props.task}
-        
-        // </span>
-        // )
+const Todo = (props) => {
 
-        return <p>{this.props.task}</p>
-                
-            
-        
-    }
-    
+        return (<p>{props.task}</p>)
+   
 }
 
 export default Todo

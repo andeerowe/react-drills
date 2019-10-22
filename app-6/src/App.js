@@ -1,55 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import Todo from './Components/Todo'
 
-class App extends Component {
+const App = () => {
+const [list, setList] = useState([])
+const [item, setItem] = useState('')
 
-constructor () {
-  super ()
-
-  this.state = {
-    todoList: [],
-    item: ''
-  }
+const updateList = () => {
+    setList([...list, item])
+    setItem('')
 }
 
-updateItem = (val) => {
-  this.setState({
-    item: val
-  })
-  // console.log(this.state.todoList)
-}
-
-updateList = () => {
-  this.setState({
-    todoList: [...this.state.todoList, this.state.item],
-    item: ''
-  })
-}
-
-  render() {
-
-    let list = this.state.todoList.map((e,i) => {
+    let toDoList = list.map((e,i) => {
       return <Todo key={i} task={e}/>
   
     })
 
-    console.log(this.state.todoList)
+    // console.log(this.state.todoList)
 
     return (
       <div className="App">
         <h1>My To-Do List</h1>
 
         <div>
-        <input onChange={(e)=>this.updateItem(e.target.value)}/>
-        <button onClick={() => this.updateList()}>Add</button>
+        <input onChange={(e)=> setItem(e.target.value)}/>
+        <button onClick={() => updateList()}>Add</button>
         </div>
         <br />
-        {list}
+        {toDoList}
       </div>
     );
   }
-}
 
 export default App;
